@@ -1,0 +1,5 @@
+ooxml-to-html.xsl - Transforms (unzipped) OpenOffice document to html document. 1 parameter: the name of the folder containing the unzipped .odt file.
+ooxml-to-html.bat - Windows batch file to transform all files currently available. Will need to be modified to include new files when available.
+
+html-to-epub.xsl - Creates file structure and files for epub document. Next step is to copy html files into OEBPS folder, then create new zip file and drag mimetype file and META-INF and OEBPS folders into it. 2 parameters: the name of the output folder; the total number of html files produced by ooxml-to-html.xsl.
+html-to-epub.bat - Windows batch file to run html-to-epub.xsl. However, it runs incredibly slowly. I don't know why. Better to just create a transformation scenario in Oxygen and use that instead.
