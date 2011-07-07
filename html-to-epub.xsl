@@ -151,11 +151,12 @@
     <xsl:template name="list-toc">
         <xsl:param name="count"/>
         <xsl:if test="$count != $no-of-chs + 1">
-            <xsl:variable name="src" select="concat('chapter', string($count), '.', $CHAPTER_EXT)"/>
-            <navPoint xmlns="http://www.daisy.org/z3986/2005/ncx/" id="titlepage" playOrder="{$count}">
+            <xsl:variable name="id" select="concat('chapter', string($count))"/>
+            <xsl:variable name="src" select="concat($id, '.', $CHAPTER_EXT)"/>
+            <navPoint xmlns="http://www.daisy.org/z3986/2005/ncx/" id="{$id}" playOrder="{$count}">
                 <navLabel>
                     <text>
-                        <xsl:value-of select="document($src)/xhtml:html/xhtml:head/xhtml:title"/>
+                        <xsl:value-of select="document(concat($output-folder, '/', $src))/xhtml:html/xhtml:head/xhtml:title"/>
                     </text>
                 </navLabel>
                 <content src="{$src}"/>
